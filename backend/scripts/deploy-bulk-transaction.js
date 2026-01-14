@@ -68,7 +68,7 @@ async function main() {
   );
   const frontendAbiPath = path.join(
     __dirname,
-    "../../src/artifacts/contracts/BulkTransactionManager.json"
+    "../../src/artifacts/BulkTransactionManager.json"
   );
 
   if (fs.existsSync(artifactPath)) {
