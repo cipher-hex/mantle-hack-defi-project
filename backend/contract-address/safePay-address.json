@@ -56,5 +56,16 @@
     "contractAddress": "0xde97e0707A81600db65228e72dC0D8256C7DCe5B",
     "chainId": "31",
     "chainName": "rootstock-test"
+  },
+  {
+    "safePayAddress": "0x5e6c03E14002aF759680cd86ad4534D4b8FA0648",
+    "chainId": "5003",
+    "chainName": "mantle-sepolia",
+    "version": "enhanced",
+    "features": [
+      "native_currency",
+      "erc20_tokens"
+    ],
+    "deployedAt": "2026-01-14T18:38:20.007Z"
   }
 ]

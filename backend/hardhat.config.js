@@ -62,6 +62,12 @@ module.exports = {
       accounts: [`0x${PRIVATE_KEY}`],
       chainId: 545,
     },
+    // add mantle sepolia testnet
+    "mantle-sepolia": {
+      url: "https://rpc.sepolia.mantle.xyz",
+      accounts: [`0x${PRIVATE_KEY}`],
+      chainId: 5003,
+    },
     // add polygon pos
     "poly-test": {
       url: "https://rpc-amoy.polygon.technology",

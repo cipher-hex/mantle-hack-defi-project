@@ -10,5 +10,11 @@
     "chainId": "296",
     "chainName": "hedera-testnet",
     "deployedAt": "2025-11-21T07:07:28.663Z"
+  },
+  {
+    "contractAddress": "0xd4DA259c0d1aae023B5F19254697f7C307af5aE5",
+    "chainId": "5003",
+    "chainName": "mantle-sepolia",
+    "deployedAt": "2026-01-14T18:39:35.954Z"
   }
 ]

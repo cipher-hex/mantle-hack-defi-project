@@ -6,6 +6,7 @@ const CHAIN_SYMBOLS: { [key: number]: string } = {
   5: 'ETH', // Goerli
   296: 'HBAR', // Hedera Testnet
   297: 'HBAR', // Hedera Mainnet
+  5003: 'MNT', // Mantle Sepolia
 };
 
 export function useNativeTokenSymbol() {
