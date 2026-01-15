@@ -32,15 +32,13 @@ SafeWallet Pay adds a **smart-contract escrow layer** and rich UI on top of Mant
 1. **Escrow-first payments**
    - Funds are locked in the `SafePay` contract instead of going directly to the recipient.
 2. **Claim-based receiving**
-   - Recipients explicitly **claim** funds (HBAR or ERC‑20) with a transaction ID.
+   - Recipients explicitly **claim** funds (MNT or ERC‑20) with a transaction ID.
 3. **Refunds for unclaimed & misdirected funds**
    - If a payment is never claimed, the **sender can refund** and recover the funds.
    - This gives a safety net for **wrong-address transfers**, as long as the funds remain unclaimed in escrow.
 4. **Bulk Transaction Manager**
    - Send many payments in a single transaction to save cost and simplify operations.
-5. **Human-readable names**
-   - Resolve `.eth` via ENS (on Sepolia) and `.hbar` via HNS on Hedera to avoid copying raw addresses.
-6. **Smooth onboarding**
+5. **Smooth onboarding**
    - Web3Auth enables social logins alongside traditional wallets.
 
 Result: a safer, more forgiving payment flow that still feels like normal crypto.
@@ -78,13 +76,7 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - Trigger refunds for unclaimed escrow payments via UI.
 - Clear, human-readable statuses for every transaction.
 
-### 4. 🌐 Name Resolution (ENS)
-
-- **ENS Resolver (Mantle Sepolia)**
-  - Resolve `.eth` names to EVM addresses.
-  - Seamless integration with Ethereum Name Service for human-readable addresses.
-
-### 5. 🔑 Authentication & UX
+### 4. 🔑 Authentication & UX
 
 - **Web3Auth** for:
   - Social logins (Google, Twitter, etc.),
@@ -105,7 +97,7 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - **Efficient bulk payouts**
   - SMEs, cooperatives, DAOs, and NGOs can pay many people at once — salaries, rewards, grants, and more.
 - **Inclusive onboarding**
-  - Web3Auth and ENS name services reduce the cognitive load of using crypto.
+  - Web3Auth reduces the cognitive load of using crypto.
 
 ---
 
@@ -125,7 +117,7 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - **Solidity 0.8.x** with **Hardhat**.
 - `SafePay.sol`
   - Escrow-based payments.
-  - Claim + refund logic (HBAR and ERC‑20).
+  - Claim + refund logic (MNT and ERC‑20).
   - User ID registry & lookup.
 - `BulkTransactionManager.sol`
   - Bulk native & ERC‑20 transfers.
@@ -147,7 +139,7 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 Hedera-Payment-interface/
 ├── src/
 │   ├── components/
-│   │   ├── safe-pay/                 # SafePay escrow UI (send, claim, history, resolvers)
+│   │   ├── safe-pay/                 # SafePay escrow UI (send, claim, history)
 │   │   ├── bulk-transaction/         # Bulk transfer UI
 │   │   └── shared/                   # Shared header/layout components
 │   ├── pages/                        # Route-level pages
