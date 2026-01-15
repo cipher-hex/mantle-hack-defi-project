@@ -1,7 +1,7 @@
 # SafeWallet Pay
 
-A secure Hedera-based P2P payment platform with **escrow**, **refunds (including wrong-address sends)**, and **bulk transaction management**.  
-Built on **Hedera testnet (296)** with **Web3Auth** onboarding and a modern React UI.
+A secure Mantle-based P2P payment platform with **escrow**, **refunds (including wrong-address sends)**, and **bulk transaction management**.  
+Built on **Mantle Sepolia testnet (5003)** with **Web3Auth** onboarding and a modern React UI.
 
 ---
 
@@ -20,14 +20,14 @@ Traditional crypto payments have critical issues, especially for everyday users 
   - Paying salaries, vendors, community members or grant recipients needs many on-chain transactions, increasing cost and complexity.
 - **Complex onboarding & UX**
   - Seed phrases, network configuration, and raw hex addresses are intimidating for new users.
-- **Infrastructure gaps in**
-  - Many users need low-fee, fast, programmable payments for micro‑transactions, remittances, and bulk payouts, but don’t get that from traditional rails.
+- **Infrastructure gaps**
+  - Many users need low-fee, fast, programmable payments for micro‑transactions, remittances, and bulk payouts, but don't get that from traditional rails.
 
 ---
 
 ## 💡 Our Solution
 
-SafeWallet Pay adds a **smart-contract escrow layer** and rich UI on top of Hedera:
+SafeWallet Pay adds a **smart-contract escrow layer** and rich UI on top of Mantle:
 
 1. **Escrow-first payments**
    - Funds are locked in the `SafePay` contract instead of going directly to the recipient.
@@ -55,12 +55,12 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - Recipients **claim** funds using a transaction ID.
 - Senders can **refund unclaimed payments**, including:
   - Mistaken transfers to a wrong recipient address that never claims.
-- Send by:
-  - **Wallet address**, or
-  - **Registered user ID**.
-- Supported assets:
-  - Native **HBAR**.
-  - ERC‑20 style tokens like **HUSD** on Hedera testnet.
+   - Send by:
+     - **Wallet address**, or
+     - **Registered user ID**.
+   - Supported assets:
+     - Native **MNT** (Mantle).
+     - ERC‑20 tokens on Mantle Sepolia testnet.
 
 ### 2. 👥 Bulk Transaction Manager
 
@@ -78,18 +78,11 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - Trigger refunds for unclaimed escrow payments via UI.
 - Clear, human-readable statuses for every transaction.
 
-### 4. 🌐 Name Resolution (ENS & HNS)
+### 4. 🌐 Name Resolution (ENS)
 
-- **ENS Resolver (Sepolia)**
+- **ENS Resolver (Mantle Sepolia)**
   - Resolve `.eth` names to EVM addresses.
-- **HNS Resolver (Hedera)**
-  - Resolve `.hbar` names to:
-    - Hedera **account ID**, and
-    - Associated **EVM address**
-  - Uses:
-    - `https://api.hashgraph.name/api/v1/domains/resolve/{domain}` (HNS REST API),
-    - Hedera Mirror Node for account → EVM address.
-- Each resolver only appears on the **network where it makes sense**.
+  - Seamless integration with Ethereum Name Service for human-readable addresses.
 
 ### 5. 🔑 Authentication & UX
 
@@ -101,18 +94,18 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 
 ---
 
-## 🌍 How It Empowers Hedera the World
+## 🌍 How It Empowers Users on Mantle
 
-- **Ultra‑low fees & micro‑transactions**
-  - Hedera’s low, predictable fees make it practical to send very small payments.
+- **Low fees & high throughput**
+  - Mantle's Layer 2 architecture provides low transaction costs while maintaining Ethereum security.
 - **Fast finality**
-  - 3–5 second finality enables real‑time retail payments and remittances.
+  - Quick block times enable real‑time retail payments and remittances.
 - **Refundable escrow in trust‑poor environments**
   - Users and SMEs can send money with the confidence that unclaimed or misdirected escrow payments can be refunded.
 - **Efficient bulk payouts**
   - SMEs, cooperatives, DAOs, and NGOs can pay many people at once — salaries, rewards, grants, and more.
 - **Inclusive onboarding**
-  - Web3Auth and name services (ENS/HNS) reduce the cognitive load of using crypto.
+  - Web3Auth and ENS name services reduce the cognitive load of using crypto.
 
 ---
 
@@ -144,7 +137,7 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 
 - **Web3Auth** for social & wallet-based login.
 - Primary target network:
-  - **Hedera Testnet (Chain ID: 296)**.
+  - **Mantle Sepolia Testnet (Chain ID: 5003)**.
 
 ---
 
@@ -211,7 +204,7 @@ VITE_WEB3AUTH_CLIENT_ID=your_web3auth_client_id
 Create `.env` in the **backend** folder for deployments:
 
 ```bash
-PRIVATE_KEY=your_deployer_private_key   # EVM-compatible deployer on Hedera
+PRIVATE_KEY=your_deployer_private_key   # EVM-compatible deployer on Mantle Sepolia
 ```
 
 ### 3. Run the Frontend
@@ -232,20 +225,20 @@ Production assets will be generated in `dist/`.
 
 ---
 
-## 📝 Smart Contract Deployment (Hedera Testnet)
+## 📝 Smart Contract Deployment (Mantle Sepolia Testnet)
 
 ### 1. Deploy SafePay
 
    ```bash
 cd backend
-npx hardhat run scripts/safepay-deploy.js --network hedera-testnet
+npx hardhat run scripts/safepay-deploy.js --network mantle-sepolia
    ```
 
 ### 2. Deploy BulkTransactionManager
 
    ```bash
 cd backend
-npx hardhat run scripts/deploy-bulk-transaction.js --network hedera-testnet
+npx hardhat run scripts/deploy-bulk-transaction.js --network mantle-sepolia
 ```
 
 ### 3. Update Frontend Addresses
@@ -269,22 +262,22 @@ cp backend/artifacts/contracts/BulkTransactionManager.sol/BulkTransactionManager
 
 ---
 
-## 📍 Current Hedera Testnet Deployment
+## 📍 Current Mantle Sepolia Testnet Deployment
 
 ### SafePay (Escrow Contract)
 
-- **Address**: `0xa1e41cBa5EFD3ccd641F48cF303349f60F4b6b63`
-- **Chain ID**: `296`
-- **Deployed**: November 21, 2025
+- **Address**: `0x5e6c03E14002aF759680cd86ad4534D4b8FA0648`
+- **Chain ID**: `5003`
+- **Deployed**: January 14, 2026
 - **Tokens**:
-  - Native: **HBAR** (18 decimals)
-  - ERC‑20: **HUSD** (`0x0000000000000000000000000000000000068cda`, 6 decimals)
+  - Native: **MNT** (Mantle, 18 decimals)
+  - ERC‑20: Supported tokens on Mantle Sepolia
 
 ### BulkTransactionManager
 
-- **Address**: `0x5E0c5FCa7485be3f7e0a0809Eb18Ff5Ab6e6A346`
-- **Chain ID**: `296`
-- **Deployed**: November 21, 2025
+- **Address**: `0xd4DA259c0d1aae023B5F19254697f7C307af5aE5`
+- **Chain ID**: `5003`
+- **Deployed**: January 14, 2026
 
 These addresses are also configured in:
 
@@ -306,8 +299,8 @@ These addresses are also configured in:
   - `Ownable` for admin operations and controlled upgrades.
 - **Input & Amount Validation**
   - Frontend and contract-level checks for amounts, arrays, and addresses.
-- **Hedera Benefits**
-  - Low fees, fast finality, and carbon‑negative infrastructure.
+- **Mantle Benefits**
+  - Low fees, fast finality, and Ethereum-compatible infrastructure with Layer 2 scalability.
 
 ---
 
@@ -315,12 +308,12 @@ These addresses are also configured in:
 
 - **Universal Payment Solution (Cross‑Chain, Any Token)**
   - Allow users to **create and manage payment requests** with:
-    - Preferred blockchain (e.g. Hedera, EVM L2s, etc.),
-    - Preferred token (HBAR, stablecoins, or ERC‑20s),
+    - Preferred blockchain (e.g. Mantle, EVM L2s, etc.),
+    - Preferred token (MNT, stablecoins, or ERC‑20s),
     - Total amount to receive.
   - Generate a **payment link** that can be shared with the payer.
   - The receiver connects their wallet; if their funds are on **another chain or in another token**, the platform:
-    - Requests **allowance** on the payer’s chosen token/chain,
+    - Requests **allowance** on the payer's chosen token/chain,
     - Automatically orchestrates **swap + bridge** steps behind the scenes,
     - Delivers funds to the receiver in their **preferred token on their preferred blockchain**.
   - Goal: make crypto payments feel like a single, universal payment network, regardless of where liquidity lives.
@@ -329,8 +322,8 @@ These addresses are also configured in:
   - Normalize balances into a common unit (e.g. USD equivalent) while still showing per‑asset details.
   - Power better UX for the universal payment solution and future cross‑chain features.
 - Better **UX messaging** around wrong-address mistakes and refund windows.
-- Additional **tokens** and **stablecoins** on Hedera.
+- Additional **tokens** and **stablecoins** on Mantle.
 - **Fiat on‑ramp/off‑ramp** integration.
 - Bulk payout analytics & CSV export.
 
-SafeWallet Pay brings **safer, refundable and scalable bulk crypto payments** to Hedera — tailored for real users and businesses across the World.
+SafeWallet Pay brings **safer, refundable and scalable bulk crypto payments** to Mantle — tailored for real users and businesses across the World.
