@@ -87,13 +87,6 @@
       "decimals": 18,
       "name": "Mantle"
     },
-    "supportedTokens": [
-      {
-        "address": "0x0000000000000000000000000000000000000000",
-        "symbol": "MNT",
-        "name": "Mantle",
-        "decimals": 18
-      }
-    ]
+    "supportedTokens": []
   }
 ]
