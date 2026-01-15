@@ -55,12 +55,12 @@ Result: a safer, more forgiving payment flow that still feels like normal crypto
 - Recipients **claim** funds using a transaction ID.
 - Senders can **refund unclaimed payments**, including:
   - Mistaken transfers to a wrong recipient address that never claims.
-   - Send by:
-     - **Wallet address**, or
-     - **Registered user ID**.
-   - Supported assets:
-     - Native **MNT** (Mantle).
-     - ERC‑20 tokens on Mantle Sepolia testnet.
+  - Send by:
+    - **Wallet address**, or
+    - **Registered user ID**.
+  - Supported assets:
+    - Native **MNT** (Mantle).
+    - ERC‑20 tokens on Mantle Sepolia testnet.
 
 ### 2. 👥 Bulk Transaction Manager
 
@@ -180,8 +180,8 @@ Hedera-Payment-interface/
 
 ### 1. Clone & Install
 
-   ```bash
-   git clone <your-repo-url>
+```bash
+git clone <your-repo-url>
 cd Hedera-Payment-interface
 
 # Frontend
@@ -229,14 +229,14 @@ Production assets will be generated in `dist/`.
 
 ### 1. Deploy SafePay
 
-   ```bash
+```bash
 cd backend
 npx hardhat run scripts/safepay-deploy.js --network mantle-sepolia
-   ```
+```
 
 ### 2. Deploy BulkTransactionManager
 
-   ```bash
+```bash
 cd backend
 npx hardhat run scripts/deploy-bulk-transaction.js --network mantle-sepolia
 ```
@@ -250,14 +250,14 @@ After deployment, update:
 
 ### 4. Copy ABIs to Frontend
 
-   ```bash
+```bash
 # SafePay ABI
 cp backend/artifacts/contracts/SafePay.sol/SafePay.json \
-   src/artifacts/SafePay.json
+src/artifacts/SafePay.json
 
 # BulkTransactionManager ABI
 cp backend/artifacts/contracts/BulkTransactionManager.sol/BulkTransactionManager.json \
-   src/artifacts/BulkTransactionManager.json
+src/artifacts/BulkTransactionManager.json
 ```
 
 ---
