@@ -5,6 +5,13 @@ Built on **Mantle Sepolia testnet (5003)** with **Web3Auth** onboarding and a mo
 
 ---
 
+## 📤 Submission Info
+
+- **🌐 Live Demo**: [https://mantle-hack-defi-project.vercel.app/](https://mantle-hack-defi-project.vercel.app/)
+- **🎥 Presentation Video**: [https://youtu.be/0f7it-S-yyQ?si=nSX0KkfqKWn3FEZU](https://youtu.be/0f7it-S-yyQ?si=nSX0KkfqKWn3FEZU)
+
+---
+
 ## 📋 Problem Statement
 
 Traditional crypto payments have critical issues, especially for everyday users and businesses in :
